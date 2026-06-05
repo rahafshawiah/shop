@@ -301,10 +301,16 @@ function toggleSearch() {
   if (bar.classList.contains('open')) document.getElementById('search-input').focus();
 }
 
-function liveSearch(q) {
+ function liveSearch(q) {
   const box = document.getElementById('search-results');
   if (!q.trim()) { box.innerHTML = ''; box.style.display = 'none'; return; }
-  const results = PRODUCTS.filter(p => p.name.includes(q)).slice(0, 6);
+  
+  // ─── صيانة تصحيحية: معالجة حساسية الأحرف وتفريغ الفراغات الزائدة ───
+  const searchQuery = q.trim().toLowerCase();
+  
+  // فحص المنتجات بعد تحويل أسمائها وجملة البحث إلى أحرف صغيرة لضمان مرونة البحث
+  const results = PRODUCTS.filter(p => p.name.toLowerCase().includes(searchQuery)).slice(0, 6);
+  
   if (results.length === 0) {
     box.innerHTML = '<div class="sr-empty">لا توجد نتائج</div>';
   } else {
