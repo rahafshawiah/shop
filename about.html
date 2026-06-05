@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>من نحن — سووق</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">سووق<span class="logo-dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="products.html">المنتجات</a></li>
+      <li><a href="about.html" class="active">من نحن</a></li>
+      <li><a href="contact.html">تواصل</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" onclick="toggleSearch()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <a href="cart.html" class="icon-btn cart-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-badge" id="cart-count">0</span>
+      </a>
+      <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">الرئيسية</a>
+    <a href="products.html">المنتجات</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="page-hero about-hero">
+  <div class="container">
+    <h1>قصتنا</h1>
+    <p>رحلة بدأت بفكرة بسيطة: التسوق يجب أن يكون ممتعاً</p>
+  </div>
+</div>
+
+<!-- Mission -->
+<section class="section">
+  <div class="container">
+    <div class="about-mission">
+      <div class="mission-text">
+        <span class="section-tag">رسالتنا</span>
+        <h2>نجعل التسوق تجربة استثنائية</h2>
+        <p>أُسس سووق عام ٢٠٢٠ بهدف واحد: تقديم أفضل تجربة تسوق إلكتروني في المنطقة. نؤمن بأن كل عميل يستحق منتجات عالية الجودة، بأسعار عادلة، وخدمة تليق به.</p>
+        <p>نعمل مع أفضل الموردين محلياً وعالمياً لضمان أصالة كل منتج وجودته، مع التزامنا بتجربة تسوق آمنة وسلسة.</p>
+      </div>
+      <div class="mission-stats">
+        <div class="mstat"><span>+٢٠٠٠</span><p>منتج متاح</p></div>
+        <div class="mstat"><span>+٥٠K</span><p>عميل سعيد</p></div>
+        <div class="mstat"><span>٥</span><p>سنوات خبرة</p></div>
+        <div class="mstat"><span>٩٨٪</span><p>رضا العملاء</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="section" style="background:var(--bg2)">
+  <div class="container">
+    <div class="section-head"><h2>قيمنا</h2></div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">🎯</div>
+        <h3>الجودة أولاً</h3>
+        <p>نختار كل منتج بعناية فائقة ونضمن أصالته وجودته قبل عرضه.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <h3>الشفافية والثقة</h3>
+        <p>نؤمن بالصدق التام مع عملائنا في الأسعار والمواصفات وسياسات الإرجاع.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">⚡</div>
+        <h3>السرعة والكفاءة</h3>
+        <p>نضمن توصيل طلبك في أسرع وقت ممكن مع تتبع مباشر لحالة الشحن.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">💚</div>
+        <h3>الاستدامة</h3>
+        <p>نسعى لاستخدام تغليف صديق للبيئة والعمل مع موردين مسؤولين.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section class="section">
+  <div class="container">
+    <div class="section-head"><h2>فريقنا</h2></div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#FF6B6B,#fda085)">أ</div>
+        <h3>أحمد الشهري</h3>
+        <span>المؤسس والرئيس التنفيذي</span>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#4ECDC4,#44a08d)">س</div>
+        <h3>سارة المطيري</h3>
+        <span>مديرة المنتجات</span>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#A8E6CF,#3d9970)">م</div>
+        <h3>محمد العتيبي</h3>
+        <span>مدير التقنية</span>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#DDA0DD,#8e44ad)">ن</div>
+        <h3>نورة القحطاني</h3>
+        <span>مديرة خدمة العملاء</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="section" style="background:var(--bg2)">
+  <div class="container">
+    <div class="section-head"><h2>رحلتنا</h2></div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <span class="tl-year">٢٠٢٠</span>
+          <h3>البداية</h3>
+          <p>انطلق سووق بفريق صغير من ٥ أشخاص ومئة منتج</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <span class="tl-year">٢٠٢١</span>
+          <h3>النمو</h3>
+          <p>وصلنا لـ ١٠٠٠ منتج و ٥٠٠٠ عميل في أول عام</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <span class="tl-year">٢٠٢٣</span>
+          <h3>التوسع</h3>
+          <p>افتتحنا مستودعات في ٣ مدن رئيسية لتسريع الشحن</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot active-dot"></div>
+        <div class="tl-content">
+          <span class="tl-year">٢٠٢٥</span>
+          <h3>اليوم</h3>
+          <p>أكثر من ٢٠٠٠ منتج و ٥٠,٠٠٠ عميل سعيد</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0">
+      <p>© ٢٠٢٥ سووق. جميع الحقوق محفوظة.</p>
+    </div>
+  </div>
+</footer>
+
+<div id="toast" class="toast"></div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

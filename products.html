@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المنتجات — سووق</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">سووق<span class="logo-dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="products.html" class="active">المنتجات</a></li>
+      <li><a href="about.html">من نحن</a></li>
+      <li><a href="contact.html">تواصل</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" onclick="toggleSearch()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <a href="cart.html" class="icon-btn cart-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-badge" id="cart-count">0</span>
+      </a>
+      <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="search-bar" id="search-bar">
+    <input type="text" placeholder="ابحث عن منتجاتك..." id="search-input" oninput="liveSearch(this.value)">
+    <div class="search-results" id="search-results"></div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">الرئيسية</a>
+    <a href="products.html">المنتجات</a>
+    <a href="about.html">من نحن</a>
+    <a href="contact.html">تواصل</a>
+  </div>
+</nav>
+
+<!-- Page Header -->
+<div class="page-hero">
+  <div class="container">
+    <h1>جميع المنتجات</h1>
+    <p>اكتشف أكثر من ٢٠٠٠ منتج بأفضل الأسعار</p>
+  </div>
+</div>
+
+<!-- ═══ PRODUCTS LAYOUT ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="products-layout">
+
+      <!-- Sidebar Filters -->
+      <aside class="filters-sidebar">
+        <div class="filter-block">
+          <h3>الفئات</h3>
+          <label class="filter-check"><input type="radio" name="cat" value="all" checked onchange="applyFilters()"> الكل</label>
+          <label class="filter-check"><input type="radio" name="cat" value="fashion" onchange="applyFilters()"> 👗 أزياء</label>
+          <label class="filter-check"><input type="radio" name="cat" value="electronics" onchange="applyFilters()"> 📱 إلكترونيات</label>
+          <label class="filter-check"><input type="radio" name="cat" value="home" onchange="applyFilters()"> 🏠 المنزل</label>
+          <label class="filter-check"><input type="radio" name="cat" value="sports" onchange="applyFilters()"> ⚽ رياضة</label>
+          <label class="filter-check"><input type="radio" name="cat" value="beauty" onchange="applyFilters()"> 💄 جمال</label>
+          <label class="filter-check"><input type="radio" name="cat" value="books" onchange="applyFilters()"> 📚 كتب</label>
+        </div>
+
+        <div class="filter-block">
+          <h3>السعر</h3>
+          <div class="price-range">
+            <input type="range" id="price-max" min="50" max="2000" value="2000" step="50" oninput="updatePriceDisplay()">
+            <div class="price-display">
+              <span>٠ ر.س</span>
+              <span id="price-val">٢٠٠٠ ر.س</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-block">
+          <h3>التقييم</h3>
+          <label class="filter-check"><input type="radio" name="rating" value="0" checked onchange="applyFilters()"> الكل</label>
+          <label class="filter-check"><input type="radio" name="rating" value="4" onchange="applyFilters()"> ★★★★☆ فأكثر</label>
+          <label class="filter-check"><input type="radio" name="rating" value="4.5" onchange="applyFilters()"> ★★★★★ فأكثر</label>
+        </div>
+
+        <div class="filter-block">
+          <h3>خيارات</h3>
+          <label class="filter-check"><input type="checkbox" id="f-sale" onchange="applyFilters()"> 🏷️ تخفيضات فقط</label>
+          <label class="filter-check"><input type="checkbox" id="f-new" onchange="applyFilters()"> 🆕 جديد فقط</label>
+        </div>
+
+        <button class="btn-outline-full" onclick="resetFilters()">إعادة ضبط الفلاتر</button>
+      </aside>
+
+      <!-- Products Area -->
+      <div class="products-area">
+        <div class="products-toolbar">
+          <span id="results-count" class="results-count"></span>
+          <div class="toolbar-right">
+            <select id="sort-select" onchange="applyFilters()">
+              <option value="default">الترتيب الافتراضي</option>
+              <option value="price-asc">السعر: من الأقل</option>
+              <option value="price-desc">السعر: من الأعلى</option>
+              <option value="rating">الأعلى تقييماً</option>
+              <option value="newest">الأحدث</option>
+            </select>
+            <div class="view-toggle">
+              <button class="vbtn active" id="vbtn-grid" onclick="setView('grid')">⊞</button>
+              <button class="vbtn" id="vbtn-list" onclick="setView('list')">☰</button>
+            </div>
+          </div>
+        </div>
+        <div class="products-grid" id="products-grid"></div>
+        <div class="pagination" id="pagination"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0">
+      <p>© ٢٠٢٥ سووق. جميع الحقوق محفوظة.</p>
+      <div class="pay-icons">💳 مدى · فيزا · ماستركارد · Apple Pay</div>
+    </div>
+  </div>
+</footer>
+
+<div id="toast" class="toast"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const catParam = params.get('cat');
+  if (catParam) {
+    const r = document.querySelector(`input[name="cat"][value="${catParam}"]`);
+    if (r) r.checked = true;
+  }
+  applyFilters();
+</script>
+</body>
+</html>

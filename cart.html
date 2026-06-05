@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سلة التسوق — سووق</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">سووق<span class="logo-dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="products.html">المنتجات</a></li>
+      <li><a href="about.html">من نحن</a></li>
+      <li><a href="contact.html">تواصل</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" onclick="toggleSearch()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <a href="cart.html" class="icon-btn cart-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-badge" id="cart-count">0</span>
+      </a>
+      <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="search-bar" id="search-bar">
+    <input type="text" placeholder="ابحث..." id="search-input" oninput="liveSearch(this.value)">
+    <div class="search-results" id="search-results"></div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">الرئيسية</a>
+    <a href="products.html">المنتجات</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <h1>سلة التسوق</h1>
+    <p>راجع طلباتك قبل الدفع</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div id="cart-empty" class="cart-empty" style="display:none">
+      <div class="empty-icon">🛒</div>
+      <h2>سلتك فارغة!</h2>
+      <p>أضف منتجات من متجرنا وابدأ التسوق</p>
+      <a href="products.html" class="btn-primary">تسوق الآن</a>
+    </div>
+
+    <div id="cart-content" class="cart-layout">
+      <!-- Cart Items -->
+      <div class="cart-items-col">
+        <div class="cart-items-header">
+          <h2>المنتجات (<span id="item-count">0</span>)</h2>
+          <button class="clear-cart-btn" onclick="clearCart()">حذف الكل</button>
+        </div>
+        <div id="cart-items-list"></div>
+      </div>
+
+      <!-- Order Summary -->
+      <div class="cart-summary-col">
+        <div class="order-summary">
+          <h3>ملخص الطلب</h3>
+
+          <div class="summary-row">
+            <span>المجموع الفرعي</span>
+            <span id="subtotal">٠ ر.س</span>
+          </div>
+          <div class="summary-row">
+            <span>الشحن</span>
+            <span id="shipping-cost" class="text-green">مجاني</span>
+          </div>
+          <div class="summary-row" id="discount-row" style="display:none">
+            <span>الخصم</span>
+            <span id="discount-val" class="text-red"></span>
+          </div>
+
+          <!-- Promo Code -->
+          <div class="promo-section">
+            <label>كود الخصم</label>
+            <div class="promo-input-wrap">
+              <input type="text" id="promo-input" placeholder="أدخل الكود..." maxlength="20">
+              <button onclick="applyPromo()">تطبيق</button>
+            </div>
+            <p id="promo-msg" class="promo-msg"></p>
+            <p class="promo-hint">جرب: SAVE30 · WELCOME10 · FREE50</p>
+          </div>
+
+          <div class="summary-total">
+            <span>الإجمالي</span>
+            <span id="total-price">٠ ر.س</span>
+          </div>
+
+          <button class="btn-primary full-btn" onclick="checkout()">إتمام الشراء →</button>
+          <a href="products.html" class="continue-shopping">← متابعة التسوق</a>
+
+          <!-- Trust badges -->
+          <div class="trust-badges">
+            <div class="tbadge"><span>🔒</span><small>دفع آمن</small></div>
+            <div class="tbadge"><span>🔄</span><small>إرجاع مجاني</small></div>
+            <div class="tbadge"><span>🚀</span><small>شحن سريع</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Suggested Products -->
+<section class="section" style="background:var(--bg2)" id="suggested-section">
+  <div class="container">
+    <div class="section-head"><h2>قد يعجبك أيضاً</h2></div>
+    <div class="products-grid" id="suggested-grid"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0">
+      <p>© ٢٠٢٥ سووق. جميع الحقوق محفوظة.</p>
+      <div class="pay-icons">💳 مدى · فيزا · ماستركارد · Apple Pay</div>
+    </div>
+  </div>
+</footer>
+
+<div id="toast" class="toast"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+  renderCart();
+  renderSuggested();
+</script>
+</body>
+</html>

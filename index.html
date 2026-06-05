@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سووق — متجرك الإلكتروني</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">سووق<span class="logo-dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">الرئيسية</a></li>
+      <li><a href="products.html">المنتجات</a></li>
+      <li><a href="about.html">من نحن</a></li>
+      <li><a href="contact.html">تواصل</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" onclick="toggleSearch()" aria-label="بحث">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <a href="cart.html" class="icon-btn cart-btn" aria-label="السلة">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-badge" id="cart-count">0</span>
+      </a>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="search-bar" id="search-bar">
+    <input type="text" placeholder="ابحث عن منتجاتك..." id="search-input" oninput="liveSearch(this.value)">
+    <div class="search-results" id="search-results"></div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">الرئيسية</a>
+    <a href="products.html">المنتجات</a>
+    <a href="about.html">من نحن</a>
+    <a href="contact.html">تواصل</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-shape s1"></div>
+    <div class="hero-shape s2"></div>
+    <div class="hero-shape s3"></div>
+  </div>
+  <div class="hero-content">
+    <span class="hero-tag">🎉 تخفيضات حتى 60%</span>
+    <h1 class="hero-title">اكتشف<br><em>الأناقة</em><br>في كل تفصيل</h1>
+    <p class="hero-sub">تسوق أحدث الصيحات والعروض الحصرية<br>مع توصيل سريع لباب بيتك</p>
+    <div class="hero-btns">
+      <a href="products.html" class="btn-primary">تسوق الآن</a>
+      <a href="about.html" class="btn-ghost">تعرف علينا</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><span>+2K</span><small>منتج</small></div>
+      <div class="hstat-divider"></div>
+      <div class="hstat"><span>98%</span><small>رضا العملاء</small></div>
+      <div class="hstat-divider"></div>
+      <div class="hstat"><span>24h</span><small>توصيل سريع</small></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card hc1">
+      <div class="hc-img" style="background:linear-gradient(135deg,#f6d365,#fda085)"></div>
+      <div class="hc-info"><span>حقيبة يد</span><strong>٢٥٠ ر.س</strong></div>
+    </div>
+    <div class="hero-card hc2">
+      <div class="hc-img" style="background:linear-gradient(135deg,#a1c4fd,#c2e9fb)"></div>
+      <div class="hc-info"><span>ساعة فاخرة</span><strong>٨٩٠ ر.س</strong></div>
+    </div>
+    <div class="hero-card hc3">
+      <div class="hc-img" style="background:linear-gradient(135deg,#d4fc79,#96e6a1)"></div>
+      <div class="hc-info"><span>حذاء رياضي</span><strong>٣٤٠ ر.س</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MARQUEE ═══ -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>شحن مجاني فوق ٢٠٠ ر.س</span><span class="sep">✦</span>
+    <span>إرجاع مجاني خلال ١٤ يوم</span><span class="sep">✦</span>
+    <span>ضمان الجودة على جميع المنتجات</span><span class="sep">✦</span>
+    <span>دفع آمن بجميع الطرق</span><span class="sep">✦</span>
+    <span>شحن مجاني فوق ٢٠٠ ر.س</span><span class="sep">✦</span>
+    <span>إرجاع مجاني خلال ١٤ يوم</span><span class="sep">✦</span>
+    <span>ضمان الجودة على جميع المنتجات</span><span class="sep">✦</span>
+    <span>دفع آمن بجميع الطرق</span><span class="sep">✦</span>
+  </div>
+</div>
+
+<!-- ═══ CATEGORIES ═══ -->
+<section class="section categories-section">
+  <div class="container">
+    <div class="section-head">
+      <h2>تسوق حسب الفئة</h2>
+      <a href="products.html" class="see-all">عرض الكل ←</a>
+    </div>
+    <div class="categories-grid">
+      <a href="products.html?cat=fashion" class="cat-card" style="--cat-clr:#FF6B6B">
+        <div class="cat-icon">👗</div>
+        <h3>أزياء</h3>
+        <span>٤٨٠ منتج</span>
+      </a>
+      <a href="products.html?cat=electronics" class="cat-card" style="--cat-clr:#4ECDC4">
+        <div class="cat-icon">📱</div>
+        <h3>إلكترونيات</h3>
+        <span>٢٣٠ منتج</span>
+      </a>
+      <a href="products.html?cat=home" class="cat-card" style="--cat-clr:#FFE66D">
+        <div class="cat-icon">🏠</div>
+        <h3>المنزل</h3>
+        <span>٣٦٠ منتج</span>
+      </a>
+      <a href="products.html?cat=sports" class="cat-card" style="--cat-clr:#A8E6CF">
+        <div class="cat-icon">⚽</div>
+        <h3>رياضة</h3>
+        <span>١٩٠ منتج</span>
+      </a>
+      <a href="products.html?cat=beauty" class="cat-card" style="--cat-clr:#DDA0DD">
+        <div class="cat-icon">💄</div>
+        <h3>جمال وعناية</h3>
+        <span>٢٨٠ منتج</span>
+      </a>
+      <a href="products.html?cat=books" class="cat-card" style="--cat-clr:#F0B27A">
+        <div class="cat-icon">📚</div>
+        <h3>كتب</h3>
+        <span>١٢٠ منتج</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FEATURED PRODUCTS ═══ -->
+<section class="section" style="background:var(--bg2)">
+  <div class="container">
+    <div class="section-head">
+      <h2>منتجات مميزة</h2>
+      <a href="products.html" class="see-all">عرض الكل ←</a>
+    </div>
+    <div class="products-grid" id="featured-grid"></div>
+  </div>
+</section>
+
+<!-- ═══ BANNER ═══ -->
+<section class="promo-banner">
+  <div class="container">
+    <div class="promo-inner">
+      <div class="promo-text">
+        <span class="promo-tag">عرض محدود</span>
+        <h2>خصم ٣٠٪ على الإلكترونيات</h2>
+        <p>استخدم كود <strong>SAVE30</strong> عند الدفع</p>
+        <a href="products.html?cat=electronics" class="btn-primary">تسوق الآن</a>
+      </div>
+      <div class="promo-decor">
+        <div class="pd1">📱</div>
+        <div class="pd2">💻</div>
+        <div class="pd3">⌚</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head"><h2>ماذا يقول عملاؤنا</h2></div>
+    <div class="testimonials-grid">
+      <div class="tcard">
+        <div class="stars">★★★★★</div>
+        <p>"تجربة تسوق رائعة! الجودة فاقت توقعاتي والشحن وصل بأسرع مما توقعت."</p>
+        <div class="tcard-author">
+          <div class="avatar" style="background:#FF6B6B">س</div>
+          <div><strong>سارة أ.</strong><small>الرياض</small></div>
+        </div>
+      </div>
+      <div class="tcard">
+        <div class="stars">★★★★★</div>
+        <p>"أسعار منافسة جداً وخدمة عملاء ممتازة. سأتسوق منهم مرة أخرى بالتأكيد!"</p>
+        <div class="tcard-author">
+          <div class="avatar" style="background:#4ECDC4">م</div>
+          <div><strong>محمد ر.</strong><small>جدة</small></div>
+        </div>
+      </div>
+      <div class="tcard">
+        <div class="stars">★★★★☆</div>
+        <p>"المنتجات أصلية وبتغليف أنيق. التطبيق سهل الاستخدام والدفع آمن."</p>
+        <div class="tcard-author">
+          <div class="avatar" style="background:#A8E6CF">ن</div>
+          <div><strong>نورة خ.</strong><small>الدمام</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NEWSLETTER ═══ -->
+<section class="newsletter-section">
+  <div class="container">
+    <div class="newsletter-inner">
+      <h2>اشترك في نشرتنا البريدية</h2>
+      <p>احصل على أحدث العروض والتخفيضات مباشرة في بريدك</p>
+      <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+        <input type="email" placeholder="بريدك الإلكتروني..." required>
+        <button type="submit">اشترك</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">سووق<span class="logo-dot">.</span></div>
+        <p>متجرك الإلكتروني الأول للأناقة والجودة بأفضل الأسعار.</p>
+        <div class="socials">
+          <a href="#" aria-label="تويتر">𝕏</a>
+          <a href="#" aria-label="انستغرام">📸</a>
+          <a href="#" aria-label="تيكتوك">🎵</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>روابط سريعة</h4>
+        <a href="index.html">الرئيسية</a>
+        <a href="products.html">المنتجات</a>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html">تواصل معنا</a>
+      </div>
+      <div class="footer-col">
+        <h4>خدمة العملاء</h4>
+        <a href="#">سياسة الإرجاع</a>
+        <a href="#">الأسئلة الشائعة</a>
+        <a href="#">تتبع طلبك</a>
+        <a href="#">الشروط والأحكام</a>
+      </div>
+      <div class="footer-col">
+        <h4>تواصل معنا</h4>
+        <p>📞 920-000-0000</p>
+        <p>✉️ hello@sooq.sa</p>
+        <p>🕐 الأحد - الخميس، ٩ص - ٦م</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© ٢٠٢٥ سووق. جميع الحقوق محفوظة.</p>
+      <div class="pay-icons">💳 مدى · فيزا · ماستركارد · Apple Pay</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div id="toast" class="toast"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+  renderFeatured();
+</script>
+</body>
+</html>

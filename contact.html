@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تواصل معنا — سووق</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">سووق<span class="logo-dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="products.html">المنتجات</a></li>
+      <li><a href="about.html">من نحن</a></li>
+      <li><a href="contact.html" class="active">تواصل</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" onclick="toggleSearch()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <a href="cart.html" class="icon-btn cart-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-badge" id="cart-count">0</span>
+      </a>
+      <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">الرئيسية</a>
+    <a href="products.html">المنتجات</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <h1>تواصل معنا</h1>
+    <p>نحن هنا للمساعدة — لا تتردد في التواصل</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-layout">
+
+      <!-- Contact Info -->
+      <div class="contact-info-col">
+        <h2>كيف يمكننا مساعدتك؟</h2>
+        <p>فريقنا متاح طوال أيام الأسبوع للإجابة على استفساراتك وحل أي مشكلة.</p>
+
+        <div class="contact-cards">
+          <div class="contact-card">
+            <div class="cc-icon" style="background:#FF6B6B22;color:#FF6B6B">📞</div>
+            <div>
+              <h4>اتصل بنا</h4>
+              <p>920-000-0000</p>
+              <small>الأحد - الخميس، ٩ص - ٦م</small>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="cc-icon" style="background:#4ECDC422;color:#4ECDC4">✉️</div>
+            <div>
+              <h4>البريد الإلكتروني</h4>
+              <p>hello@sooq.sa</p>
+              <small>رد خلال ٢٤ ساعة</small>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="cc-icon" style="background:#A8E6CF22;color:#3d9970">💬</div>
+            <div>
+              <h4>الدردشة الفورية</h4>
+              <p>واتساب: 9665-000-0000+</p>
+              <small>متاح على مدار الساعة</small>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="cc-icon" style="background:#DDA0DD22;color:#8e44ad">📍</div>
+            <div>
+              <h4>العنوان</h4>
+              <p>الرياض، المملكة العربية السعودية</p>
+              <small>حي العليا، طريق الملك فهد</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Quick -->
+        <div class="faq-quick">
+          <h3>أسئلة شائعة</h3>
+          <details class="faq-item">
+            <summary>كم يستغرق وقت التوصيل؟</summary>
+            <p>يصل طلبك خلال ١-٣ أيام عمل داخل المملكة. الشحن السريع متاح في يوم واحد.</p>
+          </details>
+          <details class="faq-item">
+            <summary>هل يمكن إرجاع المنتجات؟</summary>
+            <p>نعم، يمكنك إرجاع أي منتج خلال ١٤ يوماً من الاستلام مجاناً.</p>
+          </details>
+          <details class="faq-item">
+            <summary>ما طرق الدفع المتاحة؟</summary>
+            <p>نقبل مدى، فيزا، ماستركارد، Apple Pay، وCash on Delivery.</p>
+          </details>
+          <details class="faq-item">
+            <summary>كيف أتتبع طلبي؟</summary>
+            <p>ستصلك رسالة SMS وبريد إلكتروني برقم التتبع فور شحن طلبك.</p>
+          </details>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-col">
+        <div class="contact-form-card">
+          <h3>أرسل رسالة</h3>
+          <form id="contact-form" onsubmit="sendContactForm(event)">
+            <div class="form-row">
+              <div class="form-field">
+                <label>الاسم الأول *</label>
+                <input type="text" id="cf-fname" placeholder="محمد" required>
+              </div>
+              <div class="form-field">
+                <label>الاسم الأخير</label>
+                <input type="text" id="cf-lname" placeholder="الأحمد">
+              </div>
+            </div>
+            <div class="form-field">
+              <label>البريد الإلكتروني *</label>
+              <input type="email" id="cf-email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-field">
+              <label>رقم الجوال</label>
+              <input type="tel" id="cf-phone" placeholder="+966 5X XXX XXXX">
+            </div>
+            <div class="form-field">
+              <label>الموضوع *</label>
+              <select id="cf-subject" required>
+                <option value="">اختر الموضوع...</option>
+                <option value="order">استفسار عن طلب</option>
+                <option value="return">طلب إرجاع</option>
+                <option value="product">استفسار عن منتج</option>
+                <option value="complaint">شكوى</option>
+                <option value="other">أخرى</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>الرسالة *</label>
+              <textarea id="cf-message" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary full-btn" id="send-btn">
+              إرسال الرسالة ✉️
+            </button>
+          </form>
+          <div id="form-success" class="form-success" style="display:none">
+            <div class="success-icon">✅</div>
+            <h3>تم الإرسال بنجاح!</h3>
+            <p>شكراً لتواصلك. سيرد عليك فريقنا خلال ٢٤ ساعة.</p>
+            <button class="btn-outline-sm" onclick="resetContactForm()">إرسال رسالة أخرى</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0">
+      <p>© ٢٠٢٥ سووق. جميع الحقوق محفوظة.</p>
+    </div>
+  </div>
+</footer>
+
+<div id="toast" class="toast"></div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
