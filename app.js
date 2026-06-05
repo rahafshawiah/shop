@@ -402,3 +402,24 @@ function starsHTML(r) {
 
 /* ─── INIT ─── */
 updateCartBadge();
+/* ─── صيانة تحسينية: تفعيل الوضع الداكن ─── */
+function toggleDarkMode() {
+  document.body.classList.toggle('dark-theme');
+  const btn = document.getElementById('dark-mode-btn');
+  if (document.body.classList.contains('dark-theme')) {
+    btn.textContent = '☀️';
+    localStorage.setItem('theme', 'dark');
+  } else {
+    btn.textContent = '🌙';
+    localStorage.setItem('theme', 'light');
+  }
+}
+
+// تشغيل الوضع المفضل المحفوظ تلقائياً عند تحميل الصفحة
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark-theme');
+  setTimeout(() => {
+    const btn = document.getElementById('dark-mode-btn');
+    if(btn) btn.textContent = '☀️';
+  }, 100);
+}
