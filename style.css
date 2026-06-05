@@ -713,3 +713,23 @@ a { text-decoration: none; color: inherit; }
   .team-grid { grid-template-columns: repeat(2, 1fr); }
   .mission-stats { grid-template-columns: 1fr 1fr; }
 }
+/* ─── ألوان الوضع الداكن ─── */
+body.dark-theme {
+  --bg: #121212;
+  --bg2: #1e1e1e;
+  --white: #252525;
+  --text: #e0e0e0;
+  --text2: #a0a0a0;
+  --border: #333333;
+}
+body.dark-theme .navbar {
+  background: rgba(25, 25, 25, 0.95);
+}
+body.dark-theme .cat-card, 
+body.dark-theme .product-card, 
+body.dark-theme .tcard, 
+body.dark-theme .contact-card, 
+body.dark-theme .contact-form-card,
+body.dark-theme .order-summary {
+  background: #252525;
+}
